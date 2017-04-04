@@ -51,7 +51,9 @@ public class appiumtest {
 	
 
     	// Upload apk in pCloudy
-    	PDriveFileDTO pDriveFile = pCloudyCONNECTOR.uploadApp(authToken, new File("d:/Users/aanjan.hari/Downloads/Spinner-release.apk"));
+		System.out.println("Working Directory = " +
+                 System.getProperty("user.dir"));
+    	PDriveFileDTO pDriveFile = pCloudyCONNECTOR.uploadApp(authToken, new File("../Spinner/bin/Spinner-release.apk"));
     	System.out.println("apk file uploaded successfully");
     	pCloudyCONNECTOR.initAppiumHubForApp(authToken, pDriveFile);
 
