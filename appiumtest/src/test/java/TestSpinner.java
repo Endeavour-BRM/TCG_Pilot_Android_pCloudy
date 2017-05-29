@@ -6,7 +6,7 @@ import static org.junit.Assert.*;
 import java.io.IOException;
 
 import org.junit.FixMethodOrder;
-import org.junit.Test;
+import org.junit.*;
 import org.junit.runners.MethodSorters;
 
 import com.ssts.pcloudy.ConnectError;
