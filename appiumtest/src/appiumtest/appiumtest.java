@@ -64,7 +64,7 @@ public class appiumtest {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         //capabilities.setCapability("appium-version", "1.0");
         capabilities.setCapability("platformName", "android");
-        capabilities.setCapability("platformVersion", "6.0.1");
+        capabilities.setCapability("platformVersion", "5.0.1");
         capabilities.setCapability("deviceName", bookedDevicesIDs[0].capabilities.deviceName);
         capabilities.setCapability("autoAcceptAlerts", true);
         capabilities.setCapability("autoDismissAlerts", true);
