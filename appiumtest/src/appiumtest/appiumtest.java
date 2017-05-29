@@ -46,7 +46,7 @@ public class appiumtest {
 
     	BookingDtoDevice[] bookedDevicesIDs = pCloudyCONNECTOR.bookDevicesForAppium(authToken, selectedDevices, 1, "friendlySessionName");;
     	System.out.println("Devices booked successfully");
-		System.out.println(bookedDevicesIDs.size());
+		//System.out.println(bookedDevicesIDs.size());
 		
     	
 		
