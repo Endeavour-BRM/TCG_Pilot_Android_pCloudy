@@ -46,6 +46,8 @@ public class appiumtest {
 
     	BookingDtoDevice[] bookedDevicesIDs = pCloudyCONNECTOR.bookDevicesForAppium(authToken, selectedDevices, 1, "friendlySessionName");;
     	System.out.println("Devices booked successfully");
+		System.out.println(bookedDevicesIDs.size());
+		
     	
 		
 	
@@ -65,6 +67,7 @@ public class appiumtest {
         //capabilities.setCapability("appium-version", "1.0");
         capabilities.setCapability("platformName", "android");
         capabilities.setCapability("platformVersion", "5.0.1");
+		System.out.println(bookedDevicesIDs[0].capabilities.deviceName)
         capabilities.setCapability("deviceName", bookedDevicesIDs[0].capabilities.deviceName);
         capabilities.setCapability("autoAcceptAlerts", true);
         capabilities.setCapability("autoDismissAlerts", true);
