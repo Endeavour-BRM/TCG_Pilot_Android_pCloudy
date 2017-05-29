@@ -18,7 +18,7 @@ public class TestSpinner {
 
 
 	@BeforeClass
-	public void t1InstallStartApp() throws IOException, ConnectError, InterruptedException {
+	public static void t1InstallStartApp() throws IOException, ConnectError, InterruptedException {
 		appiumtest cAppium = new appiumtest();
 		cAppium.InstallApp();
 	}
