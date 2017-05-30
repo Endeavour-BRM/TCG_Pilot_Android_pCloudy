@@ -20,7 +20,7 @@ import io.appium.java_client.android.AndroidDriver;
 
 public class appiumtest {
 	 protected static WebDriver driver;
-	 public static PCloudyAppiumSession pCloudySession'
+	 public static PCloudyAppiumSession pCloudySession;
 	public void InstallApp() throws IOException, ConnectError, InterruptedException{
 		Connector pCloudyCONNECTOR = new Connector("https://fonebooth.techendeavour.com");
     	
