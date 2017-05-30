@@ -19,7 +19,7 @@ import com.ssts.pcloudy.appium.PCloudyAppiumSession;
 
 import io.appium.java_client.android.AndroidDriver;
 
-public class appiumtest throws IOException, ConnectError, InterruptedException{
+public class appiumtest {
 	 protected static WebDriver driver;
 	 public static PCloudyAppiumSession pCloudySession;
 	public void InstallApp() throws IOException, ConnectError, InterruptedException{
@@ -120,7 +120,7 @@ public class appiumtest throws IOException, ConnectError, InterruptedException{
         driver.findElement(By.className("android.widget.CheckedTextView")).sendKeys("element");
 	}
 	
-	public void releasesession(){
+	public void releasesession() throws IOException, ConnectError, InterruptedException{
 		pCloudySession.releaseSessionNow();
 	}
 
