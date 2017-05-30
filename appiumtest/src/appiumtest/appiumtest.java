@@ -68,10 +68,10 @@ public class appiumtest {
         capabilities.setCapability("platformName", "android");
         capabilities.setCapability("platformVersion", "5.0.1");
 		System.out.println(bookedDevicesIDs[0].capabilities.deviceName);
-        //capabilities.setCapability("deviceName", bookedDevicesIDs[0].capabilities.deviceName);
-		capabilities.setCapability("deviceName", "GalaxyS4");
-        capabilities.setCapability("autoAcceptAlerts", true);
-        capabilities.setCapability("autoDismissAlerts", true);
+        capabilities.setCapability("deviceName", bookedDevicesIDs[0].capabilities.deviceName);
+		//capabilities.setCapability("deviceName", "GalaxyS4");
+        //capabilities.setCapability("autoAcceptAlerts", true);
+        //capabilities.setCapability("autoDismissAlerts", true);
         //capabilities.setCapability("app", pDriveFile.file.);
         //capabilities.setCapability("appPackage", "com.flipkart.android");
         //capabilities.setCapability("appActivity", "com.flipkart.android.SplashActivity");
