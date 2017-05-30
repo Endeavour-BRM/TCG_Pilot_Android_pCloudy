@@ -19,7 +19,7 @@ import com.ssts.pcloudy.appium.PCloudyAppiumSession;
 
 import io.appium.java_client.android.AndroidDriver;
 
-public class appiumtest {
+public class appiumtest throws IOException, ConnectError, InterruptedException{
 	 protected static WebDriver driver;
 	 public static PCloudyAppiumSession pCloudySession;
 	public void InstallApp() throws IOException, ConnectError, InterruptedException{
