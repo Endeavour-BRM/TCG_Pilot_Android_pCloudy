@@ -114,7 +114,7 @@ public class appiumtest {
 	
 	public void selectElement(String element){
         driver.findElement(By.className("android.widget.CheckedTextView")).click();
-        driver.findElement(By.name(element)).click();
+        driver.findElement(By.xpath("//*[@name='"+element+"']")).click();
 	}
 
 }
