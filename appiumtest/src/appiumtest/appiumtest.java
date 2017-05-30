@@ -121,7 +121,15 @@ public class appiumtest {
 	}
 	
 	public void releasesession() throws IOException, ConnectError, InterruptedException{
-		pCloudySession.releaseSessionNow();
+			try {
+			pCloudySession.releaseSessionNow();
+		} catch (ConnectError e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }
