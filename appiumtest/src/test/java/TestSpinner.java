@@ -5,8 +5,9 @@ import static org.junit.Assert.*;
 
 import java.io.IOException;
 
+import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
-import org.junit.*;
+import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
 import com.ssts.pcloudy.ConnectError;
@@ -18,7 +19,7 @@ public class TestSpinner {
 
 
 	@Test
-	public void t1InstallStartApp() throws IOException, ConnectError, InterruptedException {
+	public void t1InstallApp() throws IOException, ConnectError, InterruptedException {
 		appiumtest cAppium = new appiumtest();
 		cAppium.InstallApp();
 	}

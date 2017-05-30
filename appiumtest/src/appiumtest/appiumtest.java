@@ -12,7 +12,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 import com.ssts.pcloudy.ConnectError;
 import com.ssts.pcloudy.Connector;
-import com.ssts.pcloudy.dto.booking.BookingDtoDevice;
+import com.ssts.pcloudy.dto.appium.booking.BookingDtoDevice;
 import com.ssts.pcloudy.dto.device.MobileDevice;
 import com.ssts.pcloudy.dto.file.PDriveFileDTO;
 
@@ -24,54 +24,79 @@ public class appiumtest {
 		Connector pCloudyCONNECTOR = new Connector("https://fonebooth.techendeavour.com");
     	
     	String authToken = pCloudyCONNECTOR.authenticateUser("aanjan.hari@techendeavour.com", "wrw6sfqq3wdpdwmy3zvzn8ys");
-    	ArrayList selectedDevices = new ArrayList();
-    	MobileDevice[] devices = pCloudyCONNECTOR.getDevices(authToken,1,"android",true);
+    	ArrayList<MobileDevice> devices = new ArrayList<>();
+		// Populate the selected Devices here
+    	//devices.add(MobileDevice.getNew("Samsung_GalaxyS4_Android_5.0.1", 19, "GalaxyS4", "Galaxy S4", "android", "5.0.1", "Samsung"));
     	
-    	for(int i = 0; i<devices.length;i++){
-    		System.out.println(devices[i].full_name);
-    		System.out.println(devices[i].id);
-    		System.out.println(devices[i].model);
-    		System.out.println(devices[i].platform);
-    		System.out.println(devices[i].version);
-    		System.out.println(devices[i].manufacturer);
-    		System.out.println(devices[i].display_name);
+    	devices.add(MobileDevice.getNew("Lg_Nexus5_Android_6.0.1", 28, "Nexus5", "Nexus 5", "android", "6.0.1", "Lg"));
+
+    	
+
+    
+    	
+    	
+		// To select multiple devices manually, use either of these:
+		//selectedDevices.addAll(con.chooseMultipleDevices(authToken, "android"));
+		// selectedDevices.addAll(CloudyCONNECTOR.chooseSingleDevice(authToken, "android"));
+
+		String sessionName = devices.get(0).display_name + " Appium Session";
+    	
+    	for(int i = 0; i<devices.size();i++){
+    		System.out.println(devices.get(i).full_name);
+    		System.out.println(devices.get(i).id);
+    		System.out.println(devices.get(i).model);
+    		System.out.println(devices.get(i).platform);
+    		System.out.println(devices.get(i).version);
+    		System.out.println(devices.get(i).manufacturer);
+    		System.out.println(devices.get(i).display_name);
     	}
     	// Populate the selected Devices here
     	//selectedDevices.add(pCloudyCONNECTOR.getDevices(authToken,1,"android",true));
     	
-    	selectedDevices.add(MobileDevice.getNew("Samsung_GalaxyS4_Android_5.0.1", 19, "GalaxyS4", "Galaxy S4", "android", "5.0.1", "Samsung"));
+    	//selectedDevices.add(MobileDevice.getNew("Samsung_GalaxyS4_Android_5.0.1", 19, "GalaxyS4", "Galaxy S4", "android", "5.0.1", "Samsung"));
 
+    	//String sessionName = selectedDevices.get(0).display_name + " Appium Session";
 
     	// Book the selected devices in pCloudy
 
-    	BookingDtoDevice[] bookedDevicesIDs = pCloudyCONNECTOR.bookDevicesForAppium(authToken, selectedDevices, 1, "friendlySessionName");;
+    	//BookingDtoDevice[] bookedDevicesIDs = pCloudyCONNECTOR.bookDevicesForAppium(authToken, selectedDevices, 1, "friendlySessionName");;
+    	//BookingDtoDevice[] bookedDevicesIDs = pCloudyCONNECTOR.bookDevice(authToken, 1, 19);
+    	BookingDtoDevice[] bookedDevicesIDs = pCloudyCONNECTOR.AppiumApis().bookDevicesForAppium(authToken, devices, 1, sessionName);
+    	
+    	System.out.println(bookedDevicesIDs.length);
+    	System.out.println(bookedDevicesIDs[0].version);
+    	System.out.println(bookedDevicesIDs[0].model);
+    	System.out.println(bookedDevicesIDs[0].os);
+    	System.out.println(bookedDevicesIDs[0].manufacturer);
+    	System.out.println(bookedDevicesIDs[0].capabilities.deviceName);
+    	System.out.println(bookedDevicesIDs[0].capabilities.platformName);
+    	System.out.println(bookedDevicesIDs[0].capabilities.toString());
     	System.out.println("Devices booked successfully");
-		//System.out.println(bookedDevicesIDs.size());
-		
     	
 		
 	
 
     	// Upload apk in pCloudy
-		System.out.println("Working Directory = " +
+    	 System.out.println("Working Directory = " +
                  System.getProperty("user.dir"));
-    	PDriveFileDTO pDriveFile = pCloudyCONNECTOR.uploadApp(authToken, new File("../Spinner/bin/Spinner-release.apk"));
+    	PDriveFileDTO pDriveFile = pCloudyCONNECTOR.uploadApp(authToken, new File("d:/Users/aanjan.hari/Downloads/Spinner-release.apk"));
     	System.out.println("apk file uploaded successfully");
-    	pCloudyCONNECTOR.initAppiumHubForApp(authToken, pDriveFile);
+    	pCloudyCONNECTOR.AppiumApis().initAppiumHubForApp(authToken, pDriveFile);
 
     	// Get the endpoint from pCloudy
-    	URL endpoint = pCloudyCONNECTOR.getAppiumEndpoint(authToken);
+    	URL endpoint = pCloudyCONNECTOR.AppiumApis().getAppiumEndpoint(authToken);
     	System.out.println("Appium Endpoint:" + endpoint);
     	
         DesiredCapabilities capabilities = new DesiredCapabilities();
         //capabilities.setCapability("appium-version", "1.0");
-        capabilities.setCapability("platformName", "android");
-        capabilities.setCapability("platformVersion", "5.0.1");
-		System.out.println(bookedDevicesIDs[0].capabilities.deviceName);
+        capabilities.setCapability("platformName", bookedDevicesIDs[0].capabilities.platformName);
+
         capabilities.setCapability("deviceName", bookedDevicesIDs[0].capabilities.deviceName);
-		//capabilities.setCapability("deviceName", "GalaxyS4");
+        //capabilities.setCapability("deviceName", "Samsung_GalaxyS4_Android_5.0.1");
         //capabilities.setCapability("autoAcceptAlerts", true);
         //capabilities.setCapability("autoDismissAlerts", true);
+        
+
         //capabilities.setCapability("app", pDriveFile.file.);
         //capabilities.setCapability("appPackage", "com.flipkart.android");
         //capabilities.setCapability("appActivity", "com.flipkart.android.SplashActivity");
@@ -82,6 +107,8 @@ public class appiumtest {
         //String windowhandle = driver.getWindowHandle();
         //driver.switchTo().alert().accept();
         //driver.switchTo().window(windowhandle);
+        //pCloudyCONNECTOR.revokeTokenPrivileges(authToken);
+        //pCloudySession.releaseSessionNow();
 
 	}
 	
