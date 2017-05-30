@@ -15,6 +15,7 @@ import com.ssts.pcloudy.Connector;
 import com.ssts.pcloudy.dto.appium.booking.BookingDtoDevice;
 import com.ssts.pcloudy.dto.device.MobileDevice;
 import com.ssts.pcloudy.dto.file.PDriveFileDTO;
+import com.ssts.pcloudy.appium.PCloudyAppiumSession;
 
 import io.appium.java_client.android.AndroidDriver;
 
