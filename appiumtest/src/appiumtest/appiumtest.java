@@ -20,6 +20,7 @@ import io.appium.java_client.android.AndroidDriver;
 
 public class appiumtest {
 	 protected static WebDriver driver;
+	 public static PCloudyAppiumSession pCloudySession'
 	public void InstallApp() throws IOException, ConnectError, InterruptedException{
 		Connector pCloudyCONNECTOR = new Connector("https://fonebooth.techendeavour.com");
     	
@@ -74,7 +75,8 @@ public class appiumtest {
     	System.out.println("Devices booked successfully");
     	
 		
-	
+		BookingDtoDevice aDevice = bookedDevicesIDs[0];
+    	pCloudySession = new PCloudyAppiumSession(pCloudyCONNECTOR, authToken, aDevice);
 
     	// Upload apk in pCloudy
     	 System.out.println("Working Directory = " +
@@ -89,9 +91,9 @@ public class appiumtest {
     	
         DesiredCapabilities capabilities = new DesiredCapabilities();
         //capabilities.setCapability("appium-version", "1.0");
-        capabilities.setCapability("platformName", bookedDevicesIDs[0].capabilities.platformName);
+        capabilities.setCapability("platformName", aDevice.capabilities.platformName);
 
-        capabilities.setCapability("deviceName", bookedDevicesIDs[0].capabilities.deviceName);
+        capabilities.setCapability("deviceName", aDevice.capabilities.deviceName);
         //capabilities.setCapability("deviceName", "Samsung_GalaxyS4_Android_5.0.1");
         //capabilities.setCapability("autoAcceptAlerts", true);
         //capabilities.setCapability("autoDismissAlerts", true);
@@ -108,13 +110,17 @@ public class appiumtest {
         //driver.switchTo().alert().accept();
         //driver.switchTo().window(windowhandle);
         //pCloudyCONNECTOR.revokeTokenPrivileges(authToken);
-        //pCloudySession.releaseSessionNow();
+        
 
 	}
 	
 	public void selectElement(String element){
         driver.findElement(By.className("android.widget.CheckedTextView")).click();
         driver.findElement(By.className("android.widget.CheckedTextView")).sendKeys("element");
+	}
+	
+	public void releasesession(){
+		pCloudySession.releaseSessionNow();
 	}
 
 }
