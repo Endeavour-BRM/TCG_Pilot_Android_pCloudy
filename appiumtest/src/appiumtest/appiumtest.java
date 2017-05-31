@@ -121,6 +121,7 @@ public class appiumtest {
 	
 	public void selectElement(String element){
         driver.findElement(By.className("android.widget.CheckedTextView")).click();
+<<<<<<< HEAD
 //        TouchAction tap = new TouchAction((MobileDriver) driver);
 //		System.out.println(driver.findElement(By.className("android.widget.CheckedTextView")).getLocation());
 //		List<WebElement> listElement = driver.findElements(By.xpath(".//*"));
@@ -133,6 +134,13 @@ public class appiumtest {
 	
 	public void releasesession() {
 		try {
+=======
+        driver.findElement(By.className("android.widget.CheckedTextView")).sendKeys("element");
+	}
+	
+	public void releasesession() throws IOException, ConnectError, InterruptedException{
+			try {
+>>>>>>> f0aece6f4b12f7ef56b3fdd2b226070671c2be76
 			pCloudySession.releaseSessionNow();
 		} catch (ConnectError e) {
 			// TODO Auto-generated catch block

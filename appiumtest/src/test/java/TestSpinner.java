@@ -37,7 +37,11 @@ public class TestSpinner {
 		cAppium.selectElement("Mars");
 	}
 	@AfterClass
+<<<<<<< HEAD
 	public static void closesession() throws IOException, ConnectError, InterruptedException {
+=======
+	public static void closesession(){
+>>>>>>> f0aece6f4b12f7ef56b3fdd2b226070671c2be76
 		appiumtest cAppium = new appiumtest();
 		cAppium.releasesession();
 	}
