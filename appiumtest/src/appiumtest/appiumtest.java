@@ -122,7 +122,7 @@ public class appiumtest {
 	public void selectElement(String element){
 		System.out.println("Trying to select an element");
 			try {
-				Thread.sleep(5);
+				Thread.sleep(5000);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
