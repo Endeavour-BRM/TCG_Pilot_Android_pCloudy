@@ -120,6 +120,13 @@ public class appiumtest {
 	}
 	
 	public void selectElement(String element){
+		System.out.println("Trying to select an element");
+			try {
+				Thread.sleep(5);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
         driver.findElement(By.className("android.widget.CheckedTextView")).click();
 
 //        TouchAction tap = new TouchAction((MobileDriver) driver);
@@ -130,6 +137,7 @@ public class appiumtest {
 //		 System.out.println(elementText); 
 //		}
     		driver.findElement(By.xpath(".//*[@text='"+element+"']")).click();
+		
 	}
 	
 	
