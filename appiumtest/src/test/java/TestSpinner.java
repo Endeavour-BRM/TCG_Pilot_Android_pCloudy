@@ -13,7 +13,7 @@ import org.junit.runners.MethodSorters;
 
 import com.ssts.pcloudy.ConnectError;
 
-import appiumtest.appiumtest;
+import appiumtest.awstest;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class TestSpinner {
@@ -21,25 +21,25 @@ public class TestSpinner {
 
 	@Test
 	public void t1InstallApp() throws IOException, ConnectError, InterruptedException {
-		appiumtest cAppium = new appiumtest();
+		awstest cAppium = new awstest();
 		cAppium.InstallApp();
 	}
 	
 	@Test
 	public void t2SelectEarth(){
-		appiumtest cAppium = new appiumtest();
+		awstest cAppium = new awstest();
 		cAppium.selectElement("Earth");
 	}
 	
 	@Test
 	public void t3SelectMars(){
-		appiumtest cAppium = new appiumtest();
+		awstest cAppium = new awstest();
 		cAppium.selectElement("Mars");
 	}
 	@AfterClass
 	public static void closesession() throws IOException, ConnectError, InterruptedException {
-		appiumtest cAppium = new appiumtest();
-		cAppium.releasesession();
+		awstest cAppium = new awstest();
+		
 	}
 
 }
