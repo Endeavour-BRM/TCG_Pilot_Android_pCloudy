@@ -93,18 +93,7 @@ public abstract class TestBase {
         driver.quit();
     }
 
-    /**
-     *
-     *  Creates a navigation page and navigates to the Class' category
-     *  within the navigation drawer
-     *
-     */
-    @BeforeClass
-    public void navigateTo() throws InterruptedException {
-        navigationPage = new NavigationPage(driver);
-        navigationPage.gotoCategory(getName());
-    }
-
+   
     /**
      * Restart the app after every test class to go back to the main
      * screen and to reset the behavior
