@@ -50,6 +50,7 @@ public class LoginTest extends TestBase {
     public void loginSuccess() throws InterruptedException {
         loginPage.selectElement("Earth");
         loginPage.selectElement("Mars");
+        System.exit(1);
     }
 
    }
