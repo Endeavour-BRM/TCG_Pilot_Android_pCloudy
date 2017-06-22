@@ -38,15 +38,5 @@ public abstract class TabTestBase extends TestBase {
      *
      * @throws InterruptedException
      */
-    @BeforeClass
-    @Override
-    public void navigateTo() throws InterruptedException {
-        super.navigateTo();
-        tabViewPage = new TabViewPage(driver);
-        Thread.sleep(WaitConfig.VIEWPAGE_BEFORE_WAIT);
-        for (int i = 0; i < pageIndex(); i++) {
-            tabViewPage.turnPageLeft();
-            Thread.sleep(WaitConfig.VIEWPAGE_BEFORE_AFTER);
-        }
-    }
+   
 }
