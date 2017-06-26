@@ -25,7 +25,7 @@ import org.testng.annotations.Test;
 /**
  * Tests for a login page
  */
-public class LoginTest extends TestBase {
+public class SpinnerTest extends TestBase {
    
     private LoginPage loginPage;
 
@@ -47,10 +47,17 @@ public class LoginTest extends TestBase {
      * Tests logging in with valid credentials by verifying if the login message is correct
      */
     @Test
-    public void loginSuccess() throws InterruptedException {
+    public void SelectEarth() throws InterruptedException {
         loginPage.selectElement("Earth");
-        loginPage.selectElement("Mars");
-        System.exit(1);
+        
+        
     }
+    @Test
+    public void SelectMars() throws InterruptedException {
+        
+        loginPage.selectElement("Mars");
+        
+    }
+    
 
    }
